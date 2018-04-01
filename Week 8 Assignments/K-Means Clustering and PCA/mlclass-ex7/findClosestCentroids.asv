@@ -21,11 +21,14 @@ idx = zeros(size(X,1), 1);
 % Note: You can use a for-loop over the examples to compute this.
 %
 
-m = size(X,1)
 
-for i = 1:m
-
-
+for i = 1:size(X,1)
+  distances = zeros(1,rows(centroids));
+  for j = 1:rows(centroids)
+    distances(j) = norm( X(i,:) - centroids(j,:) , 2 );
+  end  
+  [A idx(i)] = min(distances);
+end
 
 
 
